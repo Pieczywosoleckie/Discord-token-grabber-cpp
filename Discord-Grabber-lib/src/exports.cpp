@@ -1,4 +1,4 @@
-#define GRABBER
+#define GRABBER_EXPORT
 
 #include <windows.h>
 #include <exports.h>
