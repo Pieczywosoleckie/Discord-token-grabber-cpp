@@ -2,13 +2,13 @@
 #include <windows.h>
 
 #ifdef _WIN32
-    #ifdef GRABBER
-        #define GRABBER extern "C" __declspec(dllexport)
-    #else
-        #define GRABBER extern "C" __declspec(dllimport)
-    #endif
+	#ifdef Discord_Grabber_EXPORTS
+		#define GRABBER extern "C" __declspec(dllexport)
+	#else
+		#define GRABBER extern "C" __declspec(dllimport)
+	#endif
 #else
-    #define GRABBER
+	#define GRABBER
 #endif
 
 GRABBER const char* DiscordGrabber();
