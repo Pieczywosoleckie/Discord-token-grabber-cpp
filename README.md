@@ -1,2 +1,3 @@
 # Discord-token-grabber-cpp
-Discord token grabber written in cpp 
+This is an example of a discord token grabber written in CPP
+For educational purposes only
