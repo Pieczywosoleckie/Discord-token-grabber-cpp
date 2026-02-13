@@ -1,4 +1,4 @@
-﻿cmake_minimum_required(VERSION 3.15)
+cmake_minimum_required(VERSION 3.15)
 
 project(Discord-Grabber VERSION 1.0 LANGUAGES CXX)
 
@@ -59,7 +59,10 @@ if(ENABLE_TESTS)
                 $<TARGET_FILE:Discord-Grabber>
                 $<TARGET_FILE_DIR:test_api>
         )
+        target_link_libraries(Discord-Grabber PRIVATE Crypt32 bcrypt ws2_32)
     endif()
+    
+
 
     set_target_properties(test_api PROPERTIES
         RUNTIME_OUTPUT_DIRECTORY ${FINAL_OUTPUT_DIR}
